@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.calculateButton.setOnClickListener { calculateTip() }
 
+        // Clicking ENTER KEY closes keyboard for UX purpose
         binding.costOfServiceEditText.setOnKeyListener { view, keyCode, _ ->
             handleKeyEvent(view, keyCode)
         }
@@ -32,22 +33,27 @@ class MainActivity : AppCompatActivity() {
             R.id.option_eighteen_percent -> 0.15
             else -> 0.10
         }
+
+        // If cost is left empty, App crashes. We are solving that here
         if (cost == null) {
             displayTip(0.0)
             return
         }
         var tip = cost * tipPercentage
-        val roundUpSwitchChecked = binding.roundUpAmountSwitch.isChecked
-        if (roundUpSwitchChecked)
+
+        // binding.roundUpAmountSwitch.isChecked checks round up switch
+        if (binding.roundUpAmountSwitch.isChecked)
             tip = ceil(tip)
         displayTip(tip)
     }
 
+    // Function to display final output on screen
     private fun displayTip(tip: Double) {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 
+    // Function that closes keyboard when clicked ENTER KEY
     private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
             // Hide the keyboard
