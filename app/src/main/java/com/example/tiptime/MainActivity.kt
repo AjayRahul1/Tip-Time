@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val cost = binding.costOfServiceEditText.text.toString().toDoubleOrNull()
         val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
-            R.id.option_eighteen_percent -> 0.15
+            R.id.option_fifteen_percent -> 0.15
             else -> 0.10
         }
 
