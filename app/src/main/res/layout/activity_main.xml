@@ -80,13 +80,13 @@
                 android:text="@string/amazing_20" />
 
             <RadioButton
-                android:id="@+id/option_eighteen_percent"
+                android:id="@+id/option_fifteen_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/good_18" />
 
             <RadioButton
-                android:id="@+id/option_fifteen_percent"
+                android:id="@+id/option_ten_percent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/okay_15" />
